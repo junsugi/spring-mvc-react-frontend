@@ -92,7 +92,7 @@ export default class App extends React.Component {
                         },
                       };
                       const response = await axios.post(
-                        'http://192.168.0.101:8080/petcares/api/register/',
+                        'http://ip주소:8080/petcares/api/register/',
                         JSON.stringify({username, password}),
                         config,
                       );
