@@ -142,7 +142,7 @@ class Signup extends React.Component {
                         },
                       };
                       const response = await axios.post(
-                        'http://ipaddr:8080/petcares/api/signup/',
+                        'http://IP주소:8080/petcares/api/signup/',
                         JSON.stringify({userId, username, password, address, phoneNum}),
                         config,
                       );

@@ -20,6 +20,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import axios from 'axios';
 import AutoHeightImage from 'react-native-auto-height-image';
+
 class Signin extends React.Component {
   constructor() {
     super();
@@ -89,7 +90,7 @@ class Signin extends React.Component {
                       },
                     };
                     const response = await axios.post(
-                      'http://ipaddr:8080/petcares/api/register/',
+                      'http://IP주소:8080/petcares/api/register/',
                       JSON.stringify({username, password}),
                       config,
                     );
@@ -153,6 +154,23 @@ class Signin extends React.Component {
               </TouchableOpacity>
             </View>
 
+            <View style={(styles.sectionContainer, {
+              alignSelf: 'center',
+              marginTop: 10,
+              borderRadius: 10,
+              backgroundColor: '#FFE4C4',
+              width: 100,
+              justifyContent: 'center',
+              alignItems: 'center',
+              })}>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('Main')}>
+                <Text>
+                  GET TEST
+                </Text>
+              </TouchableOpacity>
+            </View>
+
           </View>
         </View>
       </>
@@ -166,6 +184,7 @@ const styles = StyleSheet.create({
   },
 
   body: {height: '100%', backgroundColor: Colors.white},
+  
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
