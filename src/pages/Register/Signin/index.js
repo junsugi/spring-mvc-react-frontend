@@ -81,8 +81,8 @@ class Signin extends React.Component {
             <View style={(styles.sectionContainer, {alignSelf: 'center'})}>
               <TouchableOpacity
                 onPress={async () => {
-                  const username = this.state.id;
-                  const password = this.state.pwd;
+                  var id = this.state.id;
+                  var pw = this.state.pwd;
                   try {
                     const config = {
                       headers: {
@@ -90,13 +90,15 @@ class Signin extends React.Component {
                       },
                     };
                     const response = await axios.post(
-                      'http://IP주소:8080/petcares/api/register/',
-                      JSON.stringify({username, password}),
-                      config,
+                      'http://ip주소:8080/hello/loginDo?mobile=true&id='+id+'&pw='+pw,                 
+                      config
                     );
+                    console.log("완료");
                     console.log(response);
-                    alert('ddd');
+                    alert('로그인 되었습니다.');
                   } catch (error) {
+                    console.log("오류드아ㅏㅏㅏㅏㅏㅏㅏㅏㅏ");
+                    alert('에러');
                     console.error(error);
                   }
                 }}>
@@ -164,7 +166,8 @@ class Signin extends React.Component {
               alignItems: 'center',
               })}>
               <TouchableOpacity
-                onPress={() => this.props.navigation.navigate('Main')}>
+                onPress={() => this.props.navigation.navigate('Main')}
+              >
                 <Text>
                   GET TEST
                 </Text>

@@ -2,6 +2,7 @@ import React from 'react';
 import {Splash} from '../../pages';
 import {Signin} from '../../pages/Register';
 import {Signup} from '../../pages/Register';
+import {Main} from '../../pages/Register';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 
@@ -14,6 +15,20 @@ const SiginStackNavigator = createStackNavigator(
         gestureEnabled: false,
       },
     },
+    Signup: {
+      screen: Signup,
+      navigationOptions: {
+        headerShown: false,
+        gestureEnabled: false,
+      },
+    },
+    Main: {
+      screen: Main,
+      navigationOptions: {
+        headerShown: false,
+        gestureEnabled: false,
+      },
+    },   
   },
   {initialRouteName: 'Signin'},
 );
@@ -32,39 +47,10 @@ const SiginRootNavigator = createStackNavigator(
   },
 );
 
-const SignupStackNavigator = createStackNavigator(
-  {
-    Signup: {
-      screen: Signup,
-      navigationOptions: {
-        headerShown: false,
-        gestureEnabled: false,
-      },
-    },
-  },
-  {initialRouteName: 'Signup'},
-);
-
-const SignupRootNavigator = createStackNavigator(
-  {
-    SignupStackNavigator: {
-      screen: SignupStackNavigator,
-      navigationOptions: {
-        headerShown: false,
-        gestureEnabled: false,
-      },
-    },
-  },
-  {
-    initialRouteName: 'SignupStackNavigator',
-  },
-);
-
 const AppNavigator = createSwitchNavigator(
   {
     Splash,
-    Signin: SiginRootNavigator,
-    Signup: SignupRootNavigator,
+    Signin, Signup, Main : SiginRootNavigator,
   },
   {initialRouteName: 'Splash'},
 );

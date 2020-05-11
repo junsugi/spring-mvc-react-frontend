@@ -47,7 +47,8 @@ export default class Main extends React.Component {
             }}>
             <AutoHeightImage
               source={require('./image/logo.png')}
-              width={60}></AutoHeightImage>
+              width={60}>
+            </AutoHeightImage>
             <Text style={{fontSize: 20}}> 메인화면</Text>
           </View>
 
@@ -58,8 +59,9 @@ export default class Main extends React.Component {
                 <TouchableOpacity
                     onPress = {async () =>{
                         try { 
-                            const response = await axios.get('http://IP주소:8080/petcares/api/main/').then(res => {
-                                console.log(res.data);
+                            console.log("들어는 왔어")                           
+                            const response = await axios.get('http://192.168.0.54:8080/test/test/').then(res => {
+                                console.log(res);
                                 this.setState({
                                     id : res.data.userId,
                                     pwd : res.data.password,
