@@ -83,23 +83,23 @@ class Signin extends React.Component {
                 onPress={async () => {
                   var id = this.state.id;
                   var pw = this.state.pwd;
-                  try {
+                  try{
                     const config = {
-                      headers: {
-                        'Content-Type': 'application/json; charset=UTF-8',
-                      },
+                        headers: {
+                          'Content-Type': 'application/json; charset=UTF-8',
+                        },
                     };
+
                     const response = await axios.post(
-                      'http://ip주소:8080/hello/loginDo?mobile=true&id='+id+'&pw='+pw,                 
-                      config
+                        'http://192.168.0.103:8080/hello/loginDo?mobile=true&id='+id+'&pw='+pw,                 
+                        config
                     );
-                    console.log("완료");
                     console.log(response);
-                    alert('로그인 되었습니다.');
-                  } catch (error) {
-                    console.log("오류드아ㅏㅏㅏㅏㅏㅏㅏㅏㅏ");
-                    alert('에러');
-                    console.error(error);
+                    alert('로그인 성공');
+                    this.props.navigation.navigate('Main');
+                  } catch (error){
+                    alert('로그인 실패');
+                    console.log(error);
                   }
                 }}>
                 <View

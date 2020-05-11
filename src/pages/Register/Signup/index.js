@@ -130,11 +130,11 @@ class Signup extends React.Component {
               <View style={(styles.sectionContainer, {alignSelf: 'center'})}>
                 <TouchableOpacity
                   onPress={async () => {
-                    const userId = this.state.id;
-                    const password = this.state.pwd;
-                    const address = this.state.address;
-                    const phoneNum = this.state.phoneNum;
-                    const username = this.state.name;
+                    const customer_Id = this.state.id;
+                    const customer_Password = this.state.pwd;
+                    const customer_Address = this.state.address;
+                    const customer_PhoneNumer = this.state.phoneNum;
+                    const customer_Name = this.state.name;
                     try {
                       const config = {
                         headers: {
@@ -142,14 +142,14 @@ class Signup extends React.Component {
                         },
                       };
                       const response = await axios.post(
-                        'http://192.168.0.103:8080/petcares/api/signup/',
-                        JSON.stringify({userId, username, password, address, phoneNum}),
+                        'http://192.168.0.103:8080/hello/customer_signupDo?mobile=true',
+                        JSON.stringify({customer_Id, customer_Password, customer_Address, customer_PhoneNumer, customer_Name}),
                         config,
                       );
                       console.log(response);
-                      alert('ddd');
+                      alert('회원가입 성공');
                     } catch (error) {
-                      console.error(error);
+                      console.error(error.response.data);
                     }
                   }}>
                   <View
